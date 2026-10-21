@@ -1,0 +1,28 @@
+name: KoriaSpawners
+version: 1.0.0
+main: fr.koriamc.spawners.KoriaSpawners
+author: KoriaMC
+description: Spawners virtuels (menu /spawners, pose sur une cobblestone, incassables) pour KoriaMC (Spigot 1.8.8)
+# Les protections de faction passent avant la pose (casser une cobblestone chez les autres est refusé).
+softdepend: [KoriaFactions, KoriaMultiverse]
+
+# La commande principale (/spawners par défaut) et ses alias sont enregistrés dynamiquement
+# depuis config.json : ils ne sont donc pas déclarés ici.
+
+permissions:
+  koriaspawners.*:
+    description: Accès complet à KoriaSpawners
+    default: op
+    children:
+      koriaspawners.player: true
+      koriaspawners.admin: true
+      koriaspawners.bypass: true
+  koriaspawners.player:
+    description: Commandes joueur (les nœuds exacts sont définis dans config.json)
+    default: true
+  koriaspawners.admin:
+    description: Commandes d'administration (les nœuds exacts sont définis dans config.json)
+    default: op
+  koriaspawners.bypass:
+    description: Poser un objet spawner ordinaire (monde faction) et changer un spawner avec un oeuf
+    default: op

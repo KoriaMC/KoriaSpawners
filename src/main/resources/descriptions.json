@@ -1,0 +1,46 @@
+{
+  "config.json": {
+    "debug": "Affiche des informations supplémentaires dans la console.",
+    "commande": "Commande principale (/spawners). Changer le nom nécessite un redémarrage.",
+    "commande.nom": "Nom de la commande principale (redémarrage nécessaire).",
+    "commande.alias": "Autres noms de la commande principale (redémarrage nécessaire).",
+    "commande.description": "Description de la commande (aide du serveur).",
+    "commandes": "Sous-commandes. L'usage et la description affichés dans l'aide sont dans messages.json (help.commands).",
+    "commandes.*": "Sous-commande.",
+    "commandes.*.actif": "false pour désactiver complètement la commande.",
+    "commandes.*.alias": "Autres noms de la sous-commande.",
+    "commandes.*.permission": "Permission requise (vide = aucune). Donnée à tous par défaut, aux OP pour les commandes d'administration.",
+    "pose": "Pose des spawners : le joueur choisit un spawner dans /spawners puis casse le bloc de pose à l'endroit voulu.",
+    "pose.mondes-autorises": "Mondes où les spawners peuvent être posés (le monde faction). Aucun spawner, même un objet ordinaire, ne se pose ailleurs.",
+    "pose.bloc": "Bloc à casser pour poser le spawner choisi (COBBLESTONE).",
+    "pose.delai-secondes": "Temps pour casser le bloc après avoir choisi le spawner.",
+    "protection": "Protection des spawners.",
+    "protection.incassables": "Aucun spawner ne peut être cassé, par personne (même en créatif). Les joueurs retirent les leurs depuis /spawners.",
+    "protection.resistent-aux-explosions": "Les explosions ne détruisent pas les spawners.",
+    "protection.bloquer-oeufs": "Impossible de changer la créature d'un spawner avec un oeuf (permission koriaspawners.bypass pour passer).",
+    "protection.bloquer-pose-objet": "Un objet spawner ordinaire ne peut être posé que par un joueur avec koriaspawners.bypass (dans le monde faction).",
+    "menu": "Menu custom des spawners (client KoriaMC).",
+    "menu.layout": "Layout du menu dans koriamc/guis/ (modifiable avec l'éditeur de GUI KoriaMC, /koriagui).",
+    "menu.installer-layout": "Crée koriamc/guis/<layout>.json au démarrage s'il n'existe pas (jamais écrasé : supprimez-le pour revenir au menu d'origine).",
+    "menu.icone-par-defaut": "Icône d'un spawner dont la créature n'a pas d'icône.",
+    "menu.icones": "Icône de chaque créature dans le menu (minecraft:bone, koriamc:jade...).",
+    "titres": "Durées des titres à l'écran, en ticks (20 ticks = 1 seconde).",
+    "titres.apparition": "Durée d'apparition.",
+    "titres.duree": "Durée d'affichage.",
+    "titres.disparition": "Durée de disparition.",
+    "sons": "Sons joués (NOM, NOM:volume ou NOM:volume:hauteur ; vide = aucun).",
+    "sons.pose": "Spawner posé.",
+    "sons.retrait": "Spawner retiré (redevient virtuel).",
+    "sons.choix": "Spawner choisi pour être posé.",
+    "sons.refus": "Action refusée.",
+    "sons.clic-menu": "Clic dans l'éditeur de configuration."
+  },
+  "messages.json": {
+    "prefix": "Préfixe ajouté aux messages ({prefix}).",
+    "types": "Nom affiché de chaque créature.",
+    "*": "Textes affichés. [actionbar] au début : barre d'action. [title] : titre (titre;;sous-titre)."
+  },
+  "menus.json": {
+    "editeur": "Apparence de l'éditeur de configuration (/spawners config)."
+  }
+}

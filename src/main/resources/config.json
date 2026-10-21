@@ -1,0 +1,78 @@
+{
+  "debug": false,
+  "commande": {
+    "nom": "spawners",
+    "alias": ["spawner", "koriaspawners"],
+    "description": "Vos spawners"
+  },
+  "commandes": {
+    "help": { "actif": true, "alias": ["?"], "permission": "" },
+    "menu": { "actif": true, "alias": ["gui"], "permission": "koriaspawners.player.menu" },
+    "pickup": { "actif": true, "alias": ["remove"], "permission": "koriaspawners.player.menu" },
+    "place": { "actif": true, "alias": ["select"], "permission": "koriaspawners.player.menu" },
+    "cancel": { "actif": true, "alias": [], "permission": "koriaspawners.player.menu" },
+    "give": { "actif": true, "alias": ["add"], "permission": "koriaspawners.admin.give" },
+    "take": { "actif": true, "alias": ["delete"], "permission": "koriaspawners.admin.take" },
+    "list": { "actif": true, "alias": ["ls"], "permission": "koriaspawners.admin.list" },
+    "info": { "actif": true, "alias": [], "permission": "koriaspawners.admin.info" },
+    "config": { "actif": true, "alias": ["configuration", "cfg"], "permission": "koriaspawners.admin.config" },
+    "reload": { "actif": true, "alias": ["rl"], "permission": "koriaspawners.admin.reload" }
+  },
+  "pose": {
+    "mondes-autorises": ["world"],
+    "bloc": "COBBLESTONE",
+    "delai-secondes": 60
+  },
+  "protection": {
+    "incassables": true,
+    "resistent-aux-explosions": true,
+    "bloquer-oeufs": true,
+    "bloquer-pose-objet": true
+  },
+  "menu": {
+    "layout": "spawners",
+    "installer-layout": true,
+    "icone-par-defaut": "minecraft:mob_spawner",
+    "icones": {
+      "ZOMBIE": "minecraft:rotten_flesh",
+      "SKELETON": "minecraft:bone",
+      "SPIDER": "minecraft:spider_eye",
+      "CAVE_SPIDER": "minecraft:fermented_spider_eye",
+      "CREEPER": "minecraft:gunpowder",
+      "BLAZE": "minecraft:blaze_rod",
+      "PIG_ZOMBIE": "minecraft:gold_nugget",
+      "ENDERMAN": "minecraft:ender_pearl",
+      "WITCH": "minecraft:glass_bottle",
+      "SLIME": "minecraft:slime_ball",
+      "MAGMA_CUBE": "minecraft:magma_cream",
+      "GHAST": "minecraft:ghast_tear",
+      "SILVERFISH": "minecraft:stonebrick",
+      "GUARDIAN": "minecraft:prismarine_shard",
+      "IRON_GOLEM": "minecraft:iron_ingot",
+      "VILLAGER": "minecraft:emerald",
+      "COW": "minecraft:leather",
+      "MUSHROOM_COW": "minecraft:red_mushroom",
+      "PIG": "minecraft:porkchop",
+      "SHEEP": "minecraft:wool",
+      "CHICKEN": "minecraft:feather",
+      "RABBIT": "minecraft:rabbit_hide",
+      "SQUID": "minecraft:fish",
+      "WOLF": "minecraft:bone",
+      "OCELOT": "minecraft:fish",
+      "HORSE": "minecraft:saddle",
+      "BAT": "minecraft:coal"
+    }
+  },
+  "titres": {
+    "apparition": 5,
+    "duree": 40,
+    "disparition": 10
+  },
+  "sons": {
+    "pose": "DIG_STONE:1:0.8",
+    "retrait": "ITEM_PICKUP:0.8:0.8",
+    "choix": "NOTE_PLING:0.6:1.4",
+    "refus": "VILLAGER_NO",
+    "clic-menu": "CLICK:0.5:1"
+  }
+}

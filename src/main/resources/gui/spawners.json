@@ -1,0 +1,252 @@
+{
+  "type": "SCREEN",
+  "note": "Spawners du joueur (plugin KoriaSpawners). Données : %var_spawners_*%, list:spawners_liste (id, type, icone, statut [pose|virtuel|choisi], etat, position, monde, infobulle).",
+  "width": 320,
+  "height": 210,
+  "anchor": "CENTER",
+  "scaleMode": "ADAPT",
+  "referenceWidth": 480,
+  "referenceHeight": 270,
+  "background": "#A0000000",
+  "blur": true,
+  "closeOnEscape": true,
+  "openSound": "random.pop",
+  "closeSound": "",
+  "openAnimation": "ZOOM",
+  "animationDuration": 200,
+  "refreshTicks": 20,
+  "elements": [
+    {
+      "type": "RECT",
+      "id": "fond",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 210,
+      "color": "#E61A140E",
+      "radius": 8,
+      "borderColor": "#FFB17A3E",
+      "borderWidth": 1
+    },
+    {
+      "type": "RECT",
+      "id": "bandeau",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 26,
+      "color": "#FF2E2214",
+      "gradient": "#FF1C140E",
+      "radius": 8
+    },
+    {
+      "type": "ITEM",
+      "id": "bandeau_icone",
+      "x": 8,
+      "y": 5,
+      "width": 16,
+      "height": 16,
+      "item": "minecraft:mob_spawner"
+    },
+    {
+      "type": "TEXT",
+      "id": "titre",
+      "x": 0,
+      "y": 5,
+      "width": 320,
+      "height": 12,
+      "align": "CENTER",
+      "text": "&6&lMes spawners",
+      "scale": 1.25
+    },
+    {
+      "type": "TEXT",
+      "id": "compteur",
+      "x": 0,
+      "y": 17,
+      "width": 312,
+      "height": 8,
+      "align": "RIGHT",
+      "scale": 0.65,
+      "text": "&a%var_spawners_poses% &7posé(s) &8| &7%var_spawners_virtuels% virtuel(s)"
+    },
+    {
+      "type": "TEXT",
+      "id": "attente",
+      "x": 12,
+      "y": 30,
+      "width": 296,
+      "height": 9,
+      "align": "CENTER",
+      "scale": 0.75,
+      "text": "&eSpawner %var_spawners_attente_type% à poser : cassez une %var_spawners_bloc% dans le monde faction",
+      "condition": "%var_spawners_attente% == true",
+      "loopAnimation": "PULSE",
+      "loopAmount": 0.03
+    },
+    {
+      "type": "REPEATER",
+      "id": "liste",
+      "x": 12,
+      "y": 42,
+      "width": 300,
+      "height": 136,
+      "source": "list:spawners_liste",
+      "itemWidth": 70,
+      "itemHeight": 58,
+      "spacing": 5,
+      "direction": "GRID",
+      "columns": 4,
+      "scroll": "VERTICAL",
+      "clip": true,
+      "emptyText": "&7Vous n'avez aucun spawner.",
+      "children": [
+        {
+          "type": "RECT",
+          "id": "carte_posee",
+          "x": 0,
+          "y": 0,
+          "width": 70,
+          "height": 58,
+          "color": "#C0143A22",
+          "borderColor": "#FF55FF55",
+          "borderWidth": 1,
+          "radius": 5,
+          "condition": "\"{item.statut}\" == \"pose\"",
+          "tooltip": "{item.infobulle}",
+          "hoverColor": "#E0303A24",
+          "clickSound": true,
+          "actions": [
+            "close",
+            "command: %var_spawners_commande% pickup {item.id}"
+          ]
+        },
+        {
+          "type": "RECT",
+          "id": "carte_virtuelle",
+          "x": 0,
+          "y": 0,
+          "width": 70,
+          "height": 58,
+          "color": "#C0201A14",
+          "borderColor": "#FF6A5A40",
+          "borderWidth": 1,
+          "radius": 5,
+          "condition": "\"{item.statut}\" == \"virtuel\"",
+          "tooltip": "{item.infobulle}",
+          "hoverColor": "#E0303A24",
+          "clickSound": true,
+          "actions": [
+            "close",
+            "command: %var_spawners_commande% place {item.id}"
+          ]
+        },
+        {
+          "type": "RECT",
+          "id": "carte_choisie",
+          "x": 0,
+          "y": 0,
+          "width": 70,
+          "height": 58,
+          "color": "#C0403410",
+          "borderColor": "#FFFFCC33",
+          "borderWidth": 1,
+          "radius": 5,
+          "condition": "\"{item.statut}\" == \"choisi\"",
+          "tooltip": "{item.infobulle}",
+          "hoverColor": "#E0303A24",
+          "clickSound": true,
+          "actions": [
+            "close",
+            "command: %var_spawners_commande% place {item.id}"
+          ],
+          "loopAnimation": "PULSE",
+          "loopAmount": 0.04
+        },
+        {
+          "type": "ITEM",
+          "id": "bloc",
+          "x": 23,
+          "y": 5,
+          "width": 24,
+          "height": 24,
+          "item": "minecraft:mob_spawner"
+        },
+        {
+          "type": "ITEM",
+          "id": "icone",
+          "x": 44,
+          "y": 3,
+          "width": 14,
+          "height": 14,
+          "item": "{item.icone}"
+        },
+        {
+          "type": "TEXT",
+          "id": "type",
+          "x": 2,
+          "y": 32,
+          "width": 66,
+          "height": 10,
+          "align": "CENTER",
+          "scale": 0.8,
+          "text": "&f{item.type}"
+        },
+        {
+          "type": "TEXT",
+          "id": "etat",
+          "x": 2,
+          "y": 44,
+          "width": 66,
+          "height": 8,
+          "align": "CENTER",
+          "scale": 0.6,
+          "text": "{item.etat}"
+        }
+      ]
+    },
+    {
+      "type": "BUTTON",
+      "id": "annuler",
+      "x": 12,
+      "y": 184,
+      "width": 146,
+      "height": 20,
+      "text": "&eAnnuler la pose",
+      "actions": [
+        "close",
+        "command: %var_spawners_commande% cancel"
+      ],
+      "icon": "minecraft:barrier",
+      "condition": "%var_spawners_attente% == true",
+      "color": "#C0182430",
+      "hoverColor": "#E0243A4C",
+      "borderColor": "#FF2E4A60",
+      "hoverBorderColor": "#FFE0A030",
+      "borderWidth": 1,
+      "radius": 4,
+      "hoverScale": 1.03,
+      "clickSound": true
+    },
+    {
+      "type": "BUTTON",
+      "id": "fermer",
+      "x": 166,
+      "y": 184,
+      "width": 146,
+      "height": 20,
+      "text": "&cFermer",
+      "actions": [
+        "close"
+      ],
+      "color": "#C0182430",
+      "hoverColor": "#E0243A4C",
+      "borderColor": "#FF2E4A60",
+      "hoverBorderColor": "#FFE0A030",
+      "borderWidth": 1,
+      "radius": 4,
+      "hoverScale": 1.03,
+      "clickSound": true
+    }
+  ]
+}
